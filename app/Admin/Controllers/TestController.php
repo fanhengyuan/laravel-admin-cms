@@ -30,8 +30,8 @@ class TestController extends AdminController
         $grid = new Grid(new Model\TestModel);
         $grid->column('id', __('ID'))->sortable();
         $grid->column('name', __('测试名字'))->sortable();
-        $grid->column('created_at', __('Created at'))->sortable();
-        $grid->column('updated_at', __('Updated at'))->sortable();
+        $grid->column('created_at', __('创建时间'))->sortable();
+        $grid->column('updated_at', __('修改时间'))->sortable();
 
         // 筛选
         $grid->filter(function($filter){
