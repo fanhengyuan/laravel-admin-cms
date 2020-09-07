@@ -396,6 +396,8 @@ return [
     |
     */
     'extensions' => [
-
+        'china-distpicker' => [
+            'enable' => true,
+        ]
     ],
 ];

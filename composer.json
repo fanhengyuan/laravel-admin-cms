@@ -12,6 +12,7 @@
         "caouecs/laravel-lang": "~5.0",
         "encore/laravel-admin": "^1.8",
         "fideloper/proxy": "^4.0",
+        "laravel-admin-ext/china-distpicker": "^1.4",
         "laravel-admin-ext/helpers": "^1.2",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0"

@@ -16,6 +16,9 @@ Route::group([
     // 测试 CURD
     $router->resource('/test', TestController::class);
 
+    // 急诊救护车出诊列表
+    $router->resource('/emergency_ambulance_list', EmergencyController::class);
+
     // 后台上传图片
     $router->post('/uploader/upload','CkeditorUploadController@uploadImage')->name('uploader.upload');
 });
