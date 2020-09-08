@@ -103,12 +103,20 @@ class EmergencyController extends Controller
     protected function grid()
     {
         $grid = new Grid(new EmergencyAmbulance);
+        $grid->model()->orderBy('visit_time','desc');
+
         $grid->id('ID')->sortable();
-        $grid->visit_time('出车时间');
-        $grid->patient_name('患者姓名');
+        $grid->visit_time('出车时间')->sortable();
+        $grid->patient_name('患者姓名')->sortable();
+/*        $grid->column('patient_name', '患者姓名')->modal('出诊信息', function ($model) {
+            $em = new EmergencyController();
+            $detail = $em->detail($model->id);
+            $detail->disableDelete();
+            return $detail;
+        });*/
         $grid->patient_gender('患者性别')->using([1 => '男', 2 => '女']);
-        $grid->patient_age('患者年龄');
-        $grid->visit_address('出车地址');
+        $grid->patient_age('患者年龄')->sortable();
+        $grid->visit_address('出车地址')->sortable();
 //        $grid->visit_cause('出车事由');
         $grid->driver('出车司机');
 //        $grid->doctor('跟车医生');

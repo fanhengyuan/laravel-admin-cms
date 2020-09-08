@@ -20,7 +20,10 @@
 
 use App\Admin\Extensions\Form\CKEditor;
 use Encore\Admin\Form;
+//use Encore\Admin\Facades\Admin;
 
 Encore\Admin\Form::forget(['map', 'editor']);
 
 Form::extend('ckeditor', CKEditor::class);
+
+//Admin::disablePjax();
