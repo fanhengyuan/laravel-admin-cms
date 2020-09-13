@@ -40,6 +40,12 @@ class EmergencyController extends Controller
             ], true);
             $filter->like('driver', '出车司机');
             $filter->like('patient_name', '患者名字');
+            $filter->equal('patient_gender', '患者性别')->radio([
+                '' => '全部',
+                1 => '男',
+                2 => '女',
+            ]);
+
             $filter->like('visit_address', '出车地址');
         });
 
