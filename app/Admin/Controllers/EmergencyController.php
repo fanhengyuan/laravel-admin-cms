@@ -174,15 +174,15 @@ class EmergencyController extends Controller
         $form->text('patient_name', '患者姓名')->required();
         $form->radio('patient_gender', '患者性别')->options([1 => '男', 2 => '女'])->rules('min:1|max:2')->required();
         $form->text('patient_age', '患者年龄')->rules('required|min:1|max:120');
-//        $form->distpicker([
-//            'province_id' => '省份',
-//            'city_id' => '市',
-//            'district_id' => '区'
-//        ], '地域选择')->default([
-//            'province' => 130000,
-//            'city'     => 130200,
-//            'district' => 130203,
-//        ]);
+        $form->distpicker([
+            'province_id' => '省份',
+            'city_id' => '市',
+            'district_id' => '区'
+        ], '地域选择')->default([
+            'province' => 410000,
+            'city'     => 410200,
+            'district' => 410223,
+        ]);
         $form->text('visit_address', '出车地址')->required();
         $form->text('visit_cause', '出车事由')->required();
         $form->text('driver', '出车司机')->required();
