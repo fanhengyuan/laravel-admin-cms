@@ -44,6 +44,10 @@ class SurgicalPatientListController extends AdminController
                 1 => '男',
                 2 => '女',
             ]);
+            $filter->between('SSRQ', '手术时间')->datetime([
+//                'defaultDate' => Carbon::now()->startOfMonth(),
+                'maxDate' => date('Y-m-d 23:59:59')
+            ], true);
             $filter->equal('BRKS', '病人科室')->select(config('his.KSDM'));
             $filter->equal('SSYS', '手术医生')->select(config('his.YGBH'));
             $filter->equal('MZDM', '麻醉方式')->select(config('his.MZFS'));
@@ -56,8 +60,12 @@ class SurgicalPatientListController extends AdminController
         $grid->column('BRXM', __('姓名'));
         $grid->column('BRXB', __('性别'))->using(['1' => '男', '2' => '女']);
         $grid->column('BRNL', __('年龄'));
-        $grid->column('APRQ', __('手术安排日期'))->sortable();
-        $grid->column('SSRQ', __('手术日期'))->sortable();
+        $grid->column('APRQ', __('手术安排日期'))->display(function () {
+            return substr($this->APRQ, 0, 19);
+        })->sortable();
+        $grid->column('SSRQ', __('手术日期'))->display(function () {
+            return substr($this->SSRQ, 0, 19);
+        })->sortable();
         $grid->column('SSYS', __('手术医生'))->using($YGBH);
         $grid->column('MZYS', __('麻醉医生'))->using($YGBH);
         $grid->column('MZDM', __('麻醉方式'))->using($MZFS);
