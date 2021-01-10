@@ -21,4 +21,7 @@ Route::group([
 
     // 后台上传图片
     $router->post('/uploader/upload','CkeditorUploadController@uploadImage')->name('uploader.upload');
+
+    // 手术列表
+    $router->resource('/surgical_patient_list', SurgicalPatientListController::class);
 });

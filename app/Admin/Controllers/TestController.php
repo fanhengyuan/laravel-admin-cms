@@ -20,6 +20,14 @@ class TestController extends AdminController
     protected $title = 'Test controller';
 
     public function index(Content $content) {
+        var_dump(111);
+/*        $his_test = Model\His\ZY_BRRYModel::select([
+            'ZYH', 'ZYHM', 'BRXM', 'BRXB', 'BRKS', 'RYRQ',
+            'CYRQ', 'CSNY', 'BRCH', 'BRXZ', 'CYPB',
+            'BRNL', 'ZDMC'])->where('ZYHM', 20186099)->first();
+        print_r($his_test);*/
+//        $his_test = Model\His\V_MRQC_SSBRModel::select(['*'])->where()
+
         // 选填
         $content->header('高大上的CURD');
 
