@@ -27,6 +27,7 @@ class SurgicalPatientListController extends AdminController
         $grid = new Grid(new V_MRQC_SSBRModel);
 
         $grid->disableCreateButton();
+        $grid->disableRowSelector();
         $grid->actions(function ($actions) {
             $actions->disableDelete();
             $actions->disableEdit();
@@ -39,6 +40,7 @@ class SurgicalPatientListController extends AdminController
         $grid->filter(function($filter){
             $filter->disableIdFilter();
             $filter->like('BRXM', '手术病人姓名');
+            $filter->equal('ZYHM', '住院号码');
             $filter->equal('BRXB', '病人性别')->radio([
                 '' => '全部',
                 1 => '男',
@@ -72,6 +74,11 @@ class SurgicalPatientListController extends AdminController
         $grid->column('SSMC', __('手术名称'))->sortable();
 
         $grid->model()->orderBy('SSBH', 'desc');
+
+//        $grid->footer(function ($query) {
+////            var_dump($query);
+//            return "<div style='padding: 10px;'>总收入 ： 666</div>";
+//        });
         return $grid;
     }
 

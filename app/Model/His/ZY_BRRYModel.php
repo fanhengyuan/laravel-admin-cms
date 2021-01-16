@@ -13,6 +13,4 @@ class ZY_BRRYModel extends Model
 {
     protected $connection = 'sqlsrv';
     protected $table = 'ZY_BRRY';
-
-
 }
